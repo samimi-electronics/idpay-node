@@ -1,0 +1,35 @@
+{
+  "name": "idpay-node",
+  "version": "1.0.0",
+  "description": "A NodeJS library for IDPay payment gateway",
+  "main": "dist/index.js",
+  "readme": "README.md",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samimi-electronics/idpayjs.git"
+  },
+  "keywords": [
+    "idpay",
+    "js",
+    "nodejs",
+    "payment-gateway"
+  ],
+  "author": "Hamid Samimi <samimi.electronics@gmail.com> (hamidsamimi.ir)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samimi-electronics/idpayjs/issues"
+  },
+  "homepage": "https://github.com/samimi-electronics/idpayjs#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.4.13",
+    "@types/uuid": "^8.3.1",
+    "typescript": "^4.3.5"
+  }
+}
