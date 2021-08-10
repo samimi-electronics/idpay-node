@@ -13,7 +13,7 @@ export enum IDPayTrasactionStatus {
   PAYMENT_TRANSFERED_TO_PAYEE = 200,
 }
 
-export const iDPayTrasactionStatusDesc: any = {
+export const IDPayTrasactionStatusDesc = {
   1: 'Transaction not done',
   2: 'Transaction not successfull',
   3: 'Transaction failed due to an error',

@@ -6,6 +6,7 @@
     "outDir": "./lib",
     "strict": true,
     "esModuleInterop": true,
+    "suppressImplicitAnyIndexErrors": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__test__/*"]

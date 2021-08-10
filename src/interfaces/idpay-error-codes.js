@@ -1,4 +1,4 @@
-export const idPayErrorCodes: any = {
+export const IDPayErrorCodes = {
   11: 'User banned',
   12: 'API-KEY not provided',
   13: 'Domain/IP associated with the API-KEY does not match the request origin',

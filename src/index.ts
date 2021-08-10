@@ -6,11 +6,13 @@ import {
   IDPayPaymentVerifyResponse,
   IDPayTrasactionResult,
   IDPayTrasactionStatus,
-  iDPayTrasactionStatusDesc,
+  // @ts-ignore
+  IDPayTrasactionStatusDesc,
+  // @ts-ignore
+  IDPayErrorCodes
 } from './interfaces';
 
 import * as uuid from 'uuid';
-import { idPayErrorCodes } from './interfaces/idpay-error-codes';
 
 export class IDPay {
   private apiKey: string;
@@ -47,7 +49,7 @@ export class IDPay {
         },
       });
     } catch (err) {
-      const errorDesc = idPayErrorCodes[err.response.error_code];
+      const errorDesc = IDPayErrorCodes[err.response.error_code];
       throw new Error(errorDesc);
     }
     return response.data;
@@ -63,7 +65,7 @@ export class IDPay {
   ): boolean | void {
     if (cb && typeof cb !== 'function') throw new Error('Callback provided is not a function');
     if (cbResult.status !== IDPayTrasactionStatus.WAITING_FOR_APPROVAL)
-      throw new Error(iDPayTrasactionStatusDesc[cbResult.status]);
+      throw new Error(IDPayTrasactionStatusDesc[cbResult.status]);
     if (!cb) return true;
     cb(cbResult);
     return;
@@ -90,11 +92,11 @@ export class IDPay {
         })
       ).data;
     } catch (err) {
-      throw new Error(idPayErrorCodes[err.response.data.error_code]);
+      throw new Error(IDPayErrorCodes[err.response.data.error_code]);
     }
     const { status } = result;
     if (status !== IDPayTrasactionStatus.PAYMENT_ACCEPTED) {
-      throw new Error(iDPayTrasactionStatusDesc[status]);
+      throw new Error(IDPayTrasactionStatusDesc[status]);
     }
     if (!cb) return result;
     cb(result);
