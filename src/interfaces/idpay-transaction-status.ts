@@ -10,7 +10,7 @@ export enum IDPayTrasactionStatus {
   WAITING_FOR_APPROVAL = 10,
   PAYMENT_ACCEPTED = 100,
   PAYMENT_PREVIOUSLY_ACCEPTED = 101,
-  PAYMENT_TRANSFERED_TO_PAYEE = 200
+  PAYMENT_TRANSFERED_TO_PAYEE = 200,
 }
 
 export const iDPayTrasactionStatusDesc: any = {
@@ -25,5 +25,5 @@ export const iDPayTrasactionStatusDesc: any = {
   10: 'Transaction waiting for verification',
   100: 'Transaction verified',
   101: 'Transaction has already been verified',
-  200: 'Transaction recieved by recipient'
-}
+  200: 'Transaction recieved by recipient',
+};
