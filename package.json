@@ -1,10 +1,10 @@
 {
   "name": "idpay-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A NodeJS library for IDPay payment gateway",
   "main": "dist/index.js",
   "readme": "README.md",
-  "files": ["/lib/**/*"],
+  "files": ["lib/**/*"],
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
