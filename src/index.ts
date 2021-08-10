@@ -35,21 +35,19 @@ export class IDPay {
     if (!payment.order_id || !payment.order_id.length) {
       payment.order_id = uuid.v4();
     }
-
-    let response: AxiosResponse<CreatePaymentResponse>;
     try {
-      response = await axios.post<CreatePaymentResponse>(config.createPaymentURL, payment, {
+      const response = await axios.post<CreatePaymentResponse>(config.createPaymentURL, payment, {
         headers: {
           'Content-type': 'application/json',
           'X-API-KEY': this.apiKey,
           'X-SANDBOX': this.sandBox ? 1 : 0,
         },
       });
+      return response.data;
     } catch (err) {
-      const errorDesc = IDPayErrorCodes[err.response.error_code];
+      const errorDesc = IDPayErrorCodes[err.response.data.error_code];
       throw new Error(errorDesc);
     }
-    return response.data;
   }
 
   /**
