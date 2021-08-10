@@ -1,4 +1,4 @@
-export const IDPayErrorCodes = {
+const IDPayErrorCodes = {
   11: 'User banned',
   12: 'API-KEY not provided',
   13: 'Domain/IP associated with the API-KEY does not match the request origin',
@@ -22,4 +22,21 @@ export const IDPayErrorCodes = {
   52: 'No results for inquiry',
   53: 'Payment verification is not possible at the moment, please try later',
   54: 'Payment verification time-out',
+}
+
+const IDPayTrasactionStatusDesc = {
+  1: 'Transaction not done',
+  2: 'Transaction not successfull',
+  3: 'Transaction failed due to an error',
+  4: 'Transaction blocked',
+  5: 'Transaction refunded to user',
+  6: 'Transaction refunded systematically',
+  7: 'Transaction canceled by user',
+  8: 'User is at the payment gateway',
+  10: 'Transaction waiting for verification',
+  100: 'Transaction verified',
+  101: 'Transaction has already been verified',
+  200: 'Transaction recieved by recipient',
 };
+
+export { IDPayErrorCodes, IDPayTrasactionStatusDesc };

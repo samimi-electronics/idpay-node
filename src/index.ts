@@ -6,13 +6,10 @@ import {
   IDPayPaymentVerifyResponse,
   IDPayTrasactionResult,
   IDPayTrasactionStatus,
-  // @ts-ignore
-  IDPayTrasactionStatusDesc,
-  // @ts-ignore
-  IDPayErrorCodes
 } from './interfaces';
 
 import * as uuid from 'uuid';
+import { IDPayErrorCodes, IDPayTrasactionStatusDesc } from './constants';
 
 export class IDPay {
   private apiKey: string;
