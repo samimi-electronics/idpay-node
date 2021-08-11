@@ -5,5 +5,5 @@ export interface CreatePayment {
   phone?: string;
   mail?: string;
   desc?: string;
-  callbackUrl: string;
+  callback: string;
 }
