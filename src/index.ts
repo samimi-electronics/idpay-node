@@ -20,10 +20,12 @@ export class IDPay {
    * @param apiKey API-KEY provided by IDPay
    * @param sandbox Flag to enable sandbox mode for testing purposes
    */
-  constructor(apiKey: string, sandbox?: boolean) {
+  constructor(apiKey: string, sandBox?: boolean) {
     if (!apiKey) throw new Error('API Key not provided.');
     this.apiKey = apiKey;
-    sandbox && sandbox ? (this.sandBox = false) : (this.sandBox = true);
+    if (sandBox) {
+      this.sandBox = sandBox;
+    }
   }
 
   /**
@@ -36,17 +38,22 @@ export class IDPay {
       payment.order_id = uuid.v4();
     }
     try {
+      console.log(payment);
       const response = await axios.post<CreatePaymentResponse>(config.createPaymentURL, payment, {
         headers: {
           'Content-type': 'application/json',
           'X-API-KEY': this.apiKey,
           'X-SANDBOX': this.sandBox ? 1 : 0,
-        },
+        }
       });
       return response.data;
     } catch (err) {
-      const errorDesc = IDPayErrorCodes[err.response.data.error_code];
-      throw new Error(errorDesc);
+      if (err.response?.data) {
+        const errorDesc = IDPayErrorCodes[err.response?.data.error_code];
+        throw new Error(errorDesc);
+      } else {
+        throw new Error(err.message);
+      }
     }
   }
 
