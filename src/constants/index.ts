@@ -18,7 +18,7 @@ const IDPayErrorCodes = {
   41: 'Transaction status filter is not valid',
   42: 'Transaction date filter is not valid',
   43: 'Checkout date filter is not valid',
-  51: 'Transaction not found',
+  51: 'Transaction not created',
   52: 'No results for inquiry',
   53: 'Payment verification is not possible at the moment, please try later',
   54: 'Payment verification time-out',
